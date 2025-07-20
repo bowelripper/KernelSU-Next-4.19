@@ -17,6 +17,9 @@ jobs:
       CI: "false"
     steps:
     - uses: actions/checkout@v4
+    - name: Download bootretail.img from release
+      run: |
+        curl -L -o bootretail.img https://github.com/bowelripper/YOUR_REPO/releases/download/v1.0/bootretail.img
     - name: Prepare Configuration
       run: |
         CONFIG_ENV=$(cat config.env | grep -w "CONFIG_ENV" | head -n 1 | cut -d "=" -f 2)
